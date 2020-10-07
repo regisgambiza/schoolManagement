@@ -1,0 +1,21 @@
+{% extends 'base/base.html' %}
+{% block content %}
+        <h1>Learners List</h1>
+        <p class="lead">Click on learner for more details!</p>
+
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col col-lg-6 center-block">
+                    <div class="card">
+                      <ul class="list-group list-group-flush">
+                          {% for learner in learners %}
+                        <li class="list-group-item"><a href="#" >{{ learner.first_name }}{{'  '}}{{ learner.last_name }}</a></li>
+                          {% endfor %}
+                      </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
