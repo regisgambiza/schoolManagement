@@ -9,7 +9,7 @@
                     <div class="card">
                       <ul class="list-group list-group-flush">
                           {% for learner in learners %}
-                        <li class="list-group-item"><a href="#" >{{ learner.first_name }}{{'  '}}{{ learner.last_name }}</a></li>
+                            <li class="list-group-item"><a href="{% url 'detail' learner.slug %}">{{ learner.first_name }}{{'  '}}{{ learner.last_name }}</a></li>
                           {% endfor %}
                       </ul>
                     </div>

@@ -1,0 +1,25 @@
+{% extends 'base/base.html' %}
+{% block content %}
+        <h1>Learner's Details</h1>
+
+        <div class="container">
+            <div class="row justify-content-center">
+                    <div class="card" style="width: 30rem;">
+                      <div class="card-body">
+                        <h5 class="card-title">{{ learner.first_name }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ learner.last_name }}{{ ' - DOB: ' }}{{ learner.date_of_birth }}{{ ' - Grade  ' }}{{ learner.grade}}</h6>
+                          <h5 class="card-subtitle mb-2">Pace Completion</h5>
+                          <p class="card-text">Mathematics</p>
+                          <p class="card-text">English</p>
+                          <p class="card-text">Afrikaans</p>
+                          <p class="card-text">Word Building</p>
+                          <p class="card-text">Social Studies</p>
+                          <p class="card-text">Science</p>
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                      </div>
+                    </div>
+            </div>
+        </div>
+
+{% endblock %}
