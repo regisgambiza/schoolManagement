@@ -1,4 +1,5 @@
--create learner's details page
+-create learner's details page------->
+-create models for issued paces------>
+-add learner function added---------->
 -create issue pace page
 -create receive pace page
--create models for issued paces
