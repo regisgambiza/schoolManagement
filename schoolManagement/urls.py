@@ -21,5 +21,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('learner/<slug:slug>/', myapp_views.detail, name='detail'),
     path('', myapp_views.index, name='index'),
-    path('learnercreate/', myapp_views.create, name='create'),
+    path('learnercreate', myapp_views.create, name='create'),
+    path('learner/edit/<int:pk>/', myapp_views.edit, name='edit'),
+    path('learner/delete/<int:pk>/', myapp_views.delete, name='delete'),
+    path('issuepace', myapp_views.issue_pace, name='issue_pace'),
+
 ]

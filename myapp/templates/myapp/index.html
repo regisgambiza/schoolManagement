@@ -3,19 +3,28 @@
         <h1>Learners List</h1>
         <p class="lead">Click on learner for more details!</p>
 
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col col-lg-6 center-block">
-                    <div class="card">
-                      <ul class="list-group list-group-flush">
-                          {% for learner in learners %}
-                            <li class="list-group-item"><a href="{% url 'detail' learner.slug %}">{{ learner.first_name }}{{'  '}}{{ learner.last_name }}</a></li>
-                          {% endfor %}
-                      </ul>
-                    </div>
+         <div class="container">
+            <table class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Surname</th>
+                  <th scope="col">DOB</th>
+                  <th scope="col">Grade</th>
+                </tr>
+              </thead>
 
-                </div>
-            </div>
+              <tbody>
+              {% for learner in learners %}
+                <tr>
+                  <th scope="row"><a href="{% url 'detail' learner.slug %}">{{ learner.first_name }}</a></th>
+                  <td><a href="{% url 'detail' learner.slug %}">{{ learner.last_name}}</a></td>
+                  <td>{{ learner.date_of_birth }}</td>
+                  <td>{{ learner.grade }}</td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
         </div>
 
 {% endblock %}

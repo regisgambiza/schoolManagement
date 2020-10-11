@@ -30,8 +30,8 @@ class Subject(models.Model):
 
 
 class Pace(models.Model):
-    learner = models.ForeignKey(Learner, null=True, on_delete=models.PROTECT)
-    subject = models.ForeignKey(Subject, null=True, on_delete=models.PROTECT)
+    learner = models.ForeignKey(Learner, null=True, on_delete=models.CASCADE)
+    subject = models.ForeignKey(Subject, null=True, on_delete=models.CASCADE)
     pace_number = models.IntegerField(default=0)
     date_issued = models.DateField(auto_now_add=True)
     completed = models.BooleanField(default=False)

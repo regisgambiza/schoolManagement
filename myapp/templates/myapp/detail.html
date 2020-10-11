@@ -4,19 +4,35 @@
 
         <div class="container">
             <div class="row justify-content-center">
-                    <div class="card" style="width: 30rem;">
+                    <div class="card" style="width: 80rem;">
                       <div class="card-body">
                         <h5 class="card-title">{{ learner.first_name }}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">{{ learner.last_name }}{{ ' - DOB: ' }}{{ learner.date_of_birth }}{{ ' - Grade  ' }}{{ learner.grade}}</h6>
-                          <h5 class="card-subtitle mb-2">Pace Completion</h5>
-                          <p class="card-text">Mathematics</p>
-                          <p class="card-text">English</p>
-                          <p class="card-text">Afrikaans</p>
-                          <p class="card-text">Word Building</p>
-                          <p class="card-text">Social Studies</p>
-                          <p class="card-text">Science</p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
+                           <br>
+                          <h5 class="card-subtitle mb-2"><strong>Current Paces</strong></h5>
+
+                            <table class="table table-bordered table-hover">
+                              <thead>
+                                <tr>
+                                  <th scope="col">Date Issued</th>
+                                  <th scope="col">Subject</th>
+                                  <th scope="col">Pace #</th>
+                                </tr>
+                              </thead>
+
+                              <tbody>
+                              {% for pace in paces %}
+                                <tr>
+                                  <th scope="row">{{ pace.date_issued }}</th>
+                                  <td>{{ pace.subject}}</td>
+                                  <td>{{ pace.pace_number }}</td>
+                                </tr>
+                              {% endfor %}
+                              </tbody>
+                            </table>
+                        <br>
+                        <a href="{% url 'edit' pk=learner.pk %}" class="card-link">Edit</a>
+                        <a href="{% url 'delete' pk=learner.pk %}" class="card-link">Delete</a>
                       </div>
                     </div>
             </div>
