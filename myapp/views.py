@@ -16,11 +16,11 @@ def index(request):
 def detail(request, slug=None):
     learner = get_object_or_404(Learner, slug=slug)
 
-    #try:
-        #paces = get_list_or_404(Pace, id=learner.id)
-    #except:
-        #return render(request, 'myapp/detail.html', {'learner': learner})
-    #print(paces)
+    # try:
+    # paces = get_list_or_404(Pace, id=learner.id)
+    # except:
+    # return render(request, 'myapp/detail.html', {'learner': learner})
+    # print(paces)
 
     paces = Pace.objects.filter(learner=learner.id)
 
@@ -68,3 +68,14 @@ def delete(request, pk=None):
     learner.delete()
 
     return HttpResponseRedirect('/')
+
+
+def search(request):
+    q = request.GET.get('q', None)
+    learners = ''
+    if q is None or q is "":
+        learners = Learner.objects.all()
+    elif q is not None:
+        learners = Learner.objects.filter(first_name__icontains=q)
+
+    return render(request, 'myapp/index.html', {'learners': learners})

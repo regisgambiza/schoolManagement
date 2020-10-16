@@ -25,5 +25,6 @@ urlpatterns = [
     path('learner/edit/<int:pk>/', myapp_views.edit, name='edit'),
     path('learner/delete/<int:pk>/', myapp_views.delete, name='delete'),
     path('issuepace', myapp_views.issue_pace, name='issue_pace'),
+    path('search',myapp_views.search, name='search'),
 
 ]
